@@ -3,6 +3,7 @@ package com.example.client.controllers;
 import com.example.client.entities.Client;
 import com.example.client.services.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,5 +28,10 @@ public class ClientController {
     @PostMapping
     public void save(@RequestBody Client client) {
         service.addClient(client);
+    }
+
+    @GetMapping("/test")
+    public ResponseEntity<?> test(){
+        return ResponseEntity.ok("this is test for trigger");
     }
 }
